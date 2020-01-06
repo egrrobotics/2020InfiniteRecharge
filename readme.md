@@ -18,7 +18,8 @@ This is a list of all [commands](src/main/java/frc/robot/commands) used, what th
 
 | Command Name | Usage/Purpose |
 |---:|:---|
-| *n/a* | *Coming soon.*|
+| [Autonomous](src/main/java/frc/robot/commands/Autonomous.java) | Dummy autonomous routine, does nothing for now. |
+| [ArcadeDrive](src/main/java/frc/robot/commands/ArcadeDrive.java) | Controls drivetrain speed and direction with a tank-style controlset. |
 
 <br>
 
@@ -28,18 +29,20 @@ This is a list of all [subsystems](src/main/java/frc/robot/subsystems) used. Sim
 
 | Subsystem Name | Elements/Purpose |
 |---:|:---|
-| *n/a* | *Coming soon.*|
+| [Drivetrain](src/main/java/frc/robot/subsystems/Drivetrain.java) | Controls the robot's movement across the field. |
 
 <br>
 
-## Button Mappings
+## Controller Mappings
 
-These are the button mappings defined in the [OI class](src/main/java/frc/robot/OI.java) for both driver and operator controllers.
+These are the controller mappings defined in the [OI class](src/main/java/frc/robot/OI.java) for both driver and operator controllers.
 
-| Driver Button | Action/Control |
+| Driver Control | Action |
 |---:|:---|
-| *n/a* | *Coming soon.*|
+| LS Up/Down | Drive Forward/Back |
+| RS Left/Right | Steer Left/Right |
+| Right Bumper | Boost (Changes power clipping from 0.75 to 1.00) |
 
-| Operator Button | Action/Control |
+| Operator Control | Action |
 |---:|:---|
-| *n/a* | *Coming soon.*|
+| *n/a* | *Coming soon.* |
