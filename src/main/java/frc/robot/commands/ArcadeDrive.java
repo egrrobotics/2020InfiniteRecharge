@@ -7,12 +7,8 @@
 
 // Core.
 package frc.robot.commands;
-import edu.wpi.first.wpilibj.RobotBase;
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
-
-// External.
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class ArcadeDrive extends Command {
   
