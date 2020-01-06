@@ -66,15 +66,6 @@ public class ArcadeDrive extends Command {
     // Set drivetrain power.
     Robot.drivetrain.setPower(powerLeft, powerRight);
 
-    // Simulation testing code.
-    if (RobotBase.isSimulation()) {
-      System.out.println("(POWER) L=[" + powerLeft + "]; R=[" + powerRight + "]; B=[" + boosted + "]");
-    }
-
-    // Dashboard updates.
-    SmartDashboard.putNumber("Left Drive Power", powerLeft);
-    SmartDashboard.putNumber("Right Drive Power", powerRight);
-
   }
 
   // Make this return true when this Command no longer needs to run execute()
