@@ -51,11 +51,6 @@ public class ArcadeDrive extends Command {
     }
   }
 
-  // Booster function.
-  public void setBoost(boolean status) {
-    boosted = status;
-  }
-
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {

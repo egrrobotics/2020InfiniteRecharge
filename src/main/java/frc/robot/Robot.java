@@ -68,7 +68,6 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void disabledInit() {
-    drivetrain.setPower(0);
   }
 
   @Override
