@@ -28,8 +28,8 @@ public class ArcadeDrive extends Command {
   }
 
   // Deadbanding function, prevents accidental movement.
-  private double deadband(double value) {
-    if (Math.abs(value) < 0.1) return 0;
+  private double deadband(double value, double limit) {
+    if (Math.abs(value) < limit) return 0;
     else return value;
   }
 
@@ -56,8 +56,8 @@ public class ArcadeDrive extends Command {
   protected void execute() {
 
     // Obtain target values from controller.
-    throttle = scale(deadband(-Robot.oi.driverJoystick.getRawAxis(1)), 1);
-    balance = scale(deadband(Robot.oi.driverJoystick.getRawAxis(4)), 0.5);
+    throttle = scale(deadband(-Robot.oi.driverJoystick.getRawAxis(1), 0.125), 1);
+    balance = scale(deadband(Robot.oi.driverJoystick.getRawAxis(4), 0.15), 0.5);
     boosted = Robot.oi.driverButtonRightBumper.get();
 
     // Compute power values.
