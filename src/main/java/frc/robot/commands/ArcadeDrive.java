@@ -57,7 +57,7 @@ public class ArcadeDrive extends Command {
 
     // Obtain target values from controller.
     throttle = scale(deadband(-Robot.oi.driverJoystick.getRawAxis(1), 0.125), 1);
-    balance = scale(deadband(Robot.oi.driverJoystick.getRawAxis(4), 0.15), 0.5);
+    balance = scale(deadband(Robot.oi.driverJoystick.getRawAxis(2), 0.15), 0.5);
     boosted = Robot.oi.driverButtonRightBumper.get();
 
     // Compute power values.
