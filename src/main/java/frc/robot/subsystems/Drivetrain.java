@@ -7,12 +7,14 @@
 
 // Core.
 package frc.robot.subsystems;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.can.VictorSPX;
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.RobotMap;
 
 // External.
-import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import frc.robot.commands.ArcadeDrive;
 
 /**
@@ -21,16 +23,16 @@ import frc.robot.commands.ArcadeDrive;
 
 public class Drivetrain extends Subsystem {
 
-  // Talon definition and mode setup.
-  TalonSRX leftA, leftB;
-  TalonSRX rightA, rightB;
+  // Victor definition and mode setup.
+  VictorSPX leftA, leftB;
+  VictorSPX rightA, rightB;
 
   // Subsystem initialization.
   public Drivetrain() {
-    leftA = new TalonSRX(RobotMap.driveLeftA);
-    leftB = new TalonSRX(RobotMap.driveLeftB);
-    rightA = new TalonSRX(RobotMap.driveRightA);
-    rightB = new TalonSRX(RobotMap.driveRightB);
+    leftA = new VictorSPX(RobotMap.driveLeftA);
+    leftB = new VictorSPX(RobotMap.driveLeftB);
+    rightA = new VictorSPX(RobotMap.driveRightA);
+    rightB = new VictorSPX(RobotMap.driveRightB);
     rightA.setInverted(true); // Right side is inverted due to the
     rightB.setInverted(true); // orientation of the motors.
   }
