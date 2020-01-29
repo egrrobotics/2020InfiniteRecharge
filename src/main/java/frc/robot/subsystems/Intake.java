@@ -10,56 +10,59 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import frc.robot.RobotMap;
 import frc.robot.commands.IntakeDrive;
 
 /**
  * Add your docs here.
  */
-public class Intake extends Subsystem {
-  // Put methods for controlling this subsystem
-  // here. Call these from Commands.
+public class Intake extends PIDSubsystem {
 
-  // Talons.
-  TalonSRX lift, spinner;
+  TalonSRX lift;
 
-  // Setup.
+  /**
+   * Add your docs here.
+   */
   public Intake() {
+    // Intert a subsystem name and PID values here
+    super("Intake", 1, 2, 3);
+    // Use these to get going:
+    // setSetpoint() - Sets where the PID controller should move the system
+    // to
+    // enable() - Enables the PID controller.
     lift = new TalonSRX(RobotMap.intakeLift);
-    spinner = new TalonSRX(RobotMap.intakeSpinner);
+    setSetpoint(getLiftPos()); enable();
   }
-
-  // Limiter.
-  private double limiter(double value, double lowerLimit, double upperLimit) {
-    if (Math.abs(value) < lowerLimit) { value = 0; }
-    if (Math.abs(value) > upperLimit) {
-      if (value > 0) { value = upperLimit; }
-      if (value < 0) { value = -upperLimit; }
-    }
-    return value;
-  }
-
-  // Lift power.
-  public void setLiftPower(double liftPower) {
-    lift.set(ControlMode.PercentOutput, limiter(liftPower, 0.1, 0.5));
-  }
-
-  // Lift encoder position.
-  public double getLiftPos() {
-    return lift.getSelectedSensorPosition();
-  }
-
-  // Spinner power.
-  public void setSpinnerPower(double spinnerPower) {
-    spinner.set(ControlMode.PercentOutput, limiter(spinnerPower, 0.1, 0.8)/2);
-  }
-
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
     setDefaultCommand(new IntakeDrive());
+  }
+
+  public double getLiftPos() {
+    return returnPIDInput();
+  }
+
+  public void setLiftPos(double pos) {
+    setSetpoint(pos);
+  }
+
+  @Override
+  protected double returnPIDInput() {
+    // Return your input value for the PID loop
+    // e.g. a sensor, like a potentiometer:
+    // yourPot.getAverageVoltage() / kYourMaxVoltage;
+    return lift.getSelectedSensorPosition();
+  }
+
+  @Override
+  protected void usePIDOutput(double output) {
+    // Use output to drive your system, like a motor
+    // e.g. yourMotor.set(output);
+    if (Math.abs(output) < 0.1) { output = 0; }
+    lift.set(ControlMode.PercentOutput, output);
   }
 }

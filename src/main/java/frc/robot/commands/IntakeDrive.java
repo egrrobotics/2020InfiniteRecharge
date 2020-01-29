@@ -11,10 +11,14 @@ import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
 public class IntakeDrive extends Command {
+
+  double target;
+
   public IntakeDrive() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
     requires(Robot.intake);
+    target = Robot.intake.getLiftPos();
   }
 
   // Called just before this Command runs the first time
@@ -22,18 +26,14 @@ public class IntakeDrive extends Command {
   protected void initialize() {
   }
 
-  // Deadzoning.
-  private double deadZone(double value) {
-    if (Math.abs(value) < 0.15) { return 0; }
-    else { return value; }
-  }
-
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
 
-    // Set lift power.
-    Robot.intake.setLiftPower(-deadZone(Robot.oi.operatorJoystick.getRawAxis(1)));    
+    // Set lift position.
+    if (Robot.oi.operatorButtonY.get()) { target += 1; }
+    if (Robot.oi.operatorButtonA.get()) { target -= 1; }
+    Robot.intake.setLiftPos(target);
 
   }
 
