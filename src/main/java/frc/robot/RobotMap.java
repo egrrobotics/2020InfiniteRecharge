@@ -37,4 +37,8 @@ public class RobotMap {
   public static int driveRightA = 3;
   public static int driveRightB = 4;
 
+  // Intake motors.
+  public static int intakeLift = 5;
+  public static int intakeSpinner = 6;
+
 }

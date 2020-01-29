@@ -20,6 +20,7 @@ This is a list of all [commands](src/main/java/frc/robot/commands) used, what th
 |---:|:---|
 | [Autonomous](src/main/java/frc/robot/commands/Autonomous.java) | Dummy autonomous routine, does nothing for now. |
 | [ArcadeDrive](src/main/java/frc/robot/commands/ArcadeDrive.java) | Controls drivetrain speed and direction with a tank-style controlset. |
+| [IntakeDrive](src/main/java/frc/robot/commands/IntakeDrive.java) | Controls intake rotor and angle. |
 
 <br>
 
@@ -30,6 +31,7 @@ This is a list of all [subsystems](src/main/java/frc/robot/subsystems) used. Sim
 | Subsystem Name | Elements/Purpose |
 |---:|:---|
 | [Drivetrain](src/main/java/frc/robot/subsystems/Drivetrain.java) | Controls the robot's movement across the field. |
+| [Intake](src/main/java/frc/robot/subsystems/Intake.java) | Power cell intake management. |
 
 <br>
 

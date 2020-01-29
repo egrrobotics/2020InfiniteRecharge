@@ -7,6 +7,7 @@
 
 // Core.
 package frc.robot;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -15,7 +16,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 // Subsystems.
 import frc.robot.subsystems.Drivetrain;
-
+import frc.robot.subsystems.Intake;
 // Commands.
 import frc.robot.commands.Autonomous;
 
@@ -31,6 +32,7 @@ public class Robot extends TimedRobot {
 
   // Subsystems.
   public static Drivetrain drivetrain = new Drivetrain();
+  public static Intake intake = new Intake();
   
   // Other prep.
   public static OI oi;
