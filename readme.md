@@ -1,4 +1,5 @@
 # 2020 Infinite Recharge
+# New code is [here](https://github.com/egrrobotics/2020InfiniteRecharge-New)
 
 Robot code and documentation for team 5980's FIRST Robotics season, dubbed "Infinite Recharge".
 
